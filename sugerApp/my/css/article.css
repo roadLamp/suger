@@ -1,0 +1,48 @@
+*{
+	margin: 0px;
+	padding: 0px;
+	
+}
+.aricle{
+	width: 100%;
+	height: 1000px;
+}
+.nav{
+    z-index: 1;
+    width: 100%;
+    height: 2.5rem;
+    background-color: red;
+    /*position: fixed;*/
+    background-color: white;
+    /*bottom: 0;
+    left: 0;*/
+    border: 1px solid #CCCCCC;
+  
+}
+.nav .word{
+    position: absolute;
+    font-size: 1rem;
+    margin-top: 0.5rem;
+    margin-left: 3rem;
+
+}
+.nav img {
+    width: 11%;
+    height: 1.5rem;
+    top: 0.6rem;
+    position: absolute;
+}
+.nav span{
+    position: absolute;
+    color: black;
+    font-size: 1.5rem;
+    margin-left: 1.5rem;
+    margin-top: 0.4rem;
+}
+.article p{
+	font-size: 15rem;
+	position: absolute;
+    margin-top: 60px;
+    margin-left: 100px;
+
+}

@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>我</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+		<!--标准mui.css-->
+		<link rel="stylesheet" href="../common/css/mui.min.css">
+		<link rel="stylesheet" type="text/css" href="../common/css/icons-extra.css"/>
+		<link rel="stylesheet" type="text/css" href="../common/css/app.css" />
+		<link rel="stylesheet" type="text/css" href="../common/css/global.css"/>
+		<!--头部导航-->
+		<!--App自定义的css-->
+		<link rel="stylesheet" type="text/css" href="css/my.css"/>
+		<link rel="stylesheet" type="text/css" href="../common/css/meta.css"/>
+  
+		<style>
+			.title {
+				margin: 20px 15px 10px;
+				color: #6d6d72;
+				font-size: 15px;
+			}
+		</style>
+		<script type="text/javascript">
+			function setting(){
+				window.plus.webview.open("setting.html","setting",{},"slide-in-right",300); 
+			}
+			function myPage(){
+				window.plus.webview.open("myPage.html","myPage",{},"slide-in-right",300); 
+			}
+			function order(){
+				window.plus.webview.open("order.html","order",{},"slide-in-right",300); 
+			}
+			function coupon(){
+				window.plus.webview.open("coupon.html","coupon",{},"slide-in-right",300); 
+			}
+		</script>
+	</head>
+
+	<body>
+		<header id="header" class="mui-bar mui-bar-nav">
+			<h1 class="mui-title">我</h1>
+			<a class="mui-icon mui-icon-gear mui-pull-right" onclick="setting()"></a>
+		</header>
+
+
+
+		<div class="mui-content">
+
+			<ul class="mui-table-view mui-table-view-chevron">
+				<li class="mui-table-view-cell mui-media">
+					<a id="myPage" class="mui-navigate-right" onclick="myPage()">
+						<img class="mui-media-object mui-pull-left head-img" id="head-img" src="img/logo.png">
+						<div class="mui-media-body">
+							您的昵称
+							<p class='mui-ellipsis'>个性签名</p>
+						</div>
+					</a>
+				</li>
+			</ul>
+			
+			<ul class="mui-table-view mui-table-view-chevron">
+				<li class="mui-table-view-cell mui-media">
+					<a class="mui-navigate-right" onclick="order()">
+						<img class="img_me_icon_me_icon mui-pull-left" src="img/image_me_icon_me_icon_order.png">
+						<div class="mui-media-body">
+							我的订单
+						</div>
+					</a>
+				</li>
+				
+				<li class="order">
+						<ul class="mui-table-view mui-grid-view mui-grid-9">
+							<li class="mui-table-view-cell mui-media mui-col-xs-3 mui-col-sm-3">
+								<a onclick="order()">
+									<img class="img_me_icon_me_icon" src="img/image_me_icon_icon_me_wait_pay1.png">
+									<div class="mui-media-body">待付款</div>
+								</a>
+							</li>
+							<li class="mui-table-view-cell mui-media mui-col-xs-3 mui-col-sm-3">
+								<a onclick="order()">
+									<img class="img_me_icon_me_icon" src="img/image_me_icon_icon_me_wait_send.png">
+									<div class="mui-media-body">待发货</div>
+								</a>
+							</li>
+							<li class="mui-table-view-cell mui-media mui-col-xs-3 mui-col-sm-3">
+								<a onclick="order()">
+									<img class="img_me_icon_me_icon" src="img/image_me_icon_icon_me_wait_receive.png">
+									<div class="mui-media-body">待收货</div>
+								</a>
+							</li>
+							<li class="mui-table-view-cell mui-media mui-col-xs-3 mui-col-sm-3">
+								<a onclick="order()">
+									<img class="img_me_icon_me_icon" src="img/image_me_icon_icon_me_wait_receive.png">
+									<div class="mui-media-body">待评价</div>
+								</a>
+							</li>
+						</ul>
+				</li>
+			</ul>
+			<ul class="mui-table-view mui-table-view-chevron">
+				<li class="mui-table-view-cell mui-media">
+					<a class="mui-navigate-right" onclick="coupon()">
+						<img class="img_me_icon_me_icon mui-pull-left" src="img/image_me_icon_me_icon_coupon.png">
+						<div class="mui-media-body">
+							我的礼券
+						</div>
+					</a>
+				</li>
+				<li class="mui-table-view-cell">
+					<a class="mui-navigate-right">
+						<img class="img_me_icon_me_icon mui-pull-left" src="img/me_icon_luckybag.png">
+						<div class="mui-media-body">
+							我的福袋
+						</div>
+					</a>
+				</li>
+			</ul>
+			<ul class="mui-table-view mui-table-view-chevron">
+				<li class="mui-table-view-cell mui-media">
+					<a class="mui-navigate-right">
+						<img class="img_me_icon_me_icon mui-pull-left" src="img/me_icon_album.png">
+						<div class="mui-media-body">
+							我的专辑
+						</div>
+					</a>
+				</li>
+				<li class="mui-table-view-cell">
+					<a class="mui-navigate-right">
+						<img class="img_me_icon_me_icon mui-pull-left" src="img/me_icon_article.png">
+						<div class="mui-media-body">
+							我的文章
+						</div>
+					</a>
+				</li>
+				<li class="mui-table-view-cell">
+					<a class='mui-navigate-right' href="javascript:;">
+						<img class="img_me_icon_me_icon mui-pull-left" src="img/me_icon_collect.png">
+						<div class="mui-media-body">
+							我的收藏
+						</div>
+					</a>
+				</li>
+				<li class="mui-table-view-cell">
+					<a class='mui-navigate-right' href="javascript:;">
+						<img class="img_me_icon_me_icon mui-pull-left" src="img/me_icon_subscribe.png">
+						<div class="mui-media-body">
+							我的订阅
+						</div>
+					</a>
+				</li>
+			</ul>
+			<ul class="mui-table-view mui-table-view-chevron">
+				<li class="mui-table-view-cell mui-media">
+					<a class="mui-navigate-right">
+						<img class="img_me_icon_me_icon mui-pull-left" src="img/me_icon_comments.png">
+						<div class="mui-media-body">
+							评论
+						</div>
+					</a>
+				</li>
+				<li class="mui-table-view-cell">
+					<a class='mui-navigate-right' href="javascript:;">
+						<img class="img_me_icon_me_icon mui-pull-left" src="img/me_icon_notification.png">
+						<div class="mui-media-body">
+							收藏/赞
+						</div>
+					</a>
+				</li>
+				<li class="mui-table-view-cell">
+					<a class='mui-navigate-right' href="javascript:;">
+						<img class="img_me_icon_me_icon mui-pull-left" src="img/me_icon_message.png">
+						<div class="mui-media-body">
+							聊天
+						</div>
+					</a>
+				</li>
+			</ul>
+			<ul class="mui-table-view mui-table-view-chevron">
+				<li class="mui-table-view-cell mui-media">
+					<a class="mui-navigate-right" href="javascript:;">
+					<img class="img_me_icon_me_icon mui-pull-left" src="img/me_icon_follow.png">
+						<div class="mui-media-body">
+							添加好友
+						</div>
+					</a>
+				</li>
+			</ul>
+		</div>
+		
+		
+	</body>
+	<script src="../common/js/mui.min.js"></script>
+	<script>
+		mui.init({
+			swipeBack: true //启用右滑关闭功能
+		});
+	</script>
+
+</html>

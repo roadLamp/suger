@@ -1,0 +1,84 @@
+html,body {
+	background-color: #FFFFFF;
+}
+			
+.mui-bar .mui-pull-left .mui-icon {
+	padding-right: 5px;
+	font-size: 28px;
+}
+			
+.mui-bar .mui-btn {
+	font-weight: normal;
+	font-size: 17px;
+}
+			
+.mui-bar .mui-btn-link {
+	top: 1px;
+}
+			
+.mui-content img{
+	width: 100%;
+}
+.hm-description{
+	margin: .5em 0 2em;
+}
+			
+.hm-description>li {
+	font-size: 14px;
+	color: #8f8f94;
+}
+.mui-bar .mui-icon {
+    color: #CDCDCDc;
+}
+#img1 {
+	height: 54vh;
+}
+#photo {
+	background-size: 100% 100%;
+    width: 75px;
+    height: 75px;
+    border: 1px solid white;
+    border-radius:50% ;
+    position: absolute;
+    top: 11vh;
+    left: 50%;
+    margin-left: -40px;
+}
+#name {
+	position: absolute;
+	left: 50vw;
+	top: 28vh; 
+	margin-left: -75px;
+	width: 150px;
+	text-align: center;
+}
+#name>p {
+	margin-bottom: 0px;
+	color: white;
+	overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+#name>p>a{
+	color: white;
+}
+.mui-card {
+    margin: 0px;
+}
+.mui-card-media>img {
+	border-radius: 50%;
+}
+.mui-card-media .mui-media-body>a {
+	font-size: 12px;
+}
+.mui-card-header:after {
+    height: 0px;
+}
+.mui-card-content {
+	margin-bottom: 40px;
+}
+.mui-card-content>img {
+	width: 70%;
+    position: relative;
+    left: 15%;
+}

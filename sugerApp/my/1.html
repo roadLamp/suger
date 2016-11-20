@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+	<html>
+		<head>
+			<meta charset="UTF-8">
+			<title></title>
+			<script>
+			 	function show(){
+					var obj = document.getElementById("d");
+					d.innerText="show text";
+			 	}
+				function message(){
+				  var obj = document.getElementById("e");
+				  alert(obj.value)
+				}
+			</script>
+		</head>
+
+		<body>
+			<div id="d" onClick="show()"  >abc</div>
+			<input type="text" id="e" value="" onBlur="message()"/>
+		</body>
+</html>

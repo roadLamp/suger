@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>我的礼券</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+		<!--标准mui.css-->
+		<link rel="stylesheet" href="../common/css/mui.min.css">
+		<!--App自定义的css-->
+	</head>
+
+	<body>
+
+		<style>
+			.mui-control-content {
+				background-color: white;
+				min-height: 600px;
+			}
+			
+			.mui-control-content .mui-loading {
+				margin-top: 50px;
+			}
+			.mui-segmented-control.mui-segmented-control-inverted .mui-control-item.mui-active {
+			    color: #ff5959;
+			    border-bottom: 2px solid #ff5959;
+			}
+			.mui-segmented-control.mui-segmented-control-inverted~.mui-slider-progress-bar {
+			    background-color: #ff5959;
+			}
+			.mui-slider-indicator.mui-segmented-control {
+			    background-color: white;
+			}
+			.top-coupon > img{
+				max-width: 100%;
+				height: auto;
+			}
+			.oupon-ul-li {
+				background-image: url(img/image_gift_voucher_gift_voucher_bg.png);
+			}
+		</style>
+		<header id="header" class="mui-bar mui-bar-nav">
+			<h1 class="mui-title">我的礼券</h1>
+			<a class="mui-icon mui-action-back mui-icon-back mui-pull-left"></a>
+			<a class="mui-icon mui-icon-info mui-pull-right"></a>
+		</header>
+		<div class="mui-content">
+			<div class="top-coupon">
+				<img src="img/image_gift_voucher_gift_voucher_new.png"/>
+				<button class="mui-btn mui-btn-primary mui-btn-outlined">领取新人礼券</button>
+			</div>
+			
+			<div id="slider" class="mui-slider">
+				<div id="sliderSegmentedControl" class="mui-slider-indicator mui-segmented-control mui-segmented-control-inverted">
+					<a class="mui-control-item" href="#item1mobile" >
+						未使用
+					</a>
+					<a class="mui-control-item" href="#item2mobile">
+						已使用
+					</a>
+					<a class="mui-control-item" href="#item3mobile">
+						已过期
+					</a>
+				</div>
+				<div id="sliderProgressBar" class="mui-slider-progress-bar mui-col-xs-4"></div>
+				<div class="mui-slider-group">
+					<div id="item1mobile" class="mui-slider-item mui-control-content mui-active">
+						<div id="scroll1" class="mui-scroll-wrapper">
+							<div class="mui-scroll">
+								<ul class="mui-table-view mui-table-view-striped mui-table-view-condensed">
+									<li class="mui-table-view-cell" style="background-image: url(img/image_gift_voucher_gift_voucher_bg.png) no-repeat;">
+											<!--<img src="../common/img/image_gift_voucher_gift_voucher_bg.png" style=""/>-->
+											<div class="mui-table-cell mui-col-xs-2 mui-text-left">
+												￥50
+											</div>
+											<div class="mui-table-cell mui-col-xs-10">
+												<h4 class="mui-ellipsis-2">扫货不吃土·新人礼券-50元</h4>
+												<h5>有效期：2016.11.13-2016.11.27</h5>
+												<p class='mui-h6 mui-ellipsis'>单笔订单满499.01元可用</p>
+											</div>
+									</li>
+									<li class="coupon-ul-li">
+										<a href="javascript:;">
+											<img class="mui-media-object mui-pull-left" src="img/ls7.JPG" style="max-width: 42px;
+    height: 42px;">
+											<div class="mui-media-body">
+												木屋
+												<p class='mui-ellipsis'>想要这样一间小木屋，夏天挫冰吃瓜，冬天围炉取暖.</p>
+											</div>
+										</a>
+									</li>
+									<li class="coupon-ul-li">
+										<a href="javascript:;">
+											<img class="mui-media-object mui-pull-left" src="img/ls5.JPG" style="max-width: 42px;
+    height: 42px;">
+											<div class="mui-media-body">
+												CBD
+												<p class='mui-ellipsis'>烤炉模式的城，到黄昏，如同打翻的调色盘一般.</p>
+											</div>
+										</a>
+									</li>
+									<li class="coupon-ul-li">
+										<a href="javascript:;">
+											<img class="mui-media-object mui-pull-left" src="img/ls5.JPG" style="max-width: 42px;
+    height: 42px;">
+											<div class="mui-media-body">
+												CBD
+												<p class='mui-ellipsis'>烤炉模式的城，到黄昏，如同打翻的调色盘一般.</p>
+											</div>
+										</a>
+									</li>
+									<li class="coupon-ul-li">
+										<a href="javascript:;">
+											<img class="mui-media-object mui-pull-left" src="img/ls5.JPG" style="max-width: 42px;
+    height: 42px;">
+											<div class="mui-media-body">
+												CBD
+												<p class='mui-ellipsis'>烤炉模式的城，到黄昏，如同打翻的调色盘一般.</p>
+											</div>
+										</a>
+									</li>
+									<li class="coupon-ul-li">
+										<a href="javascript:;">
+											<img class="mui-media-object mui-pull-left" src="img/ls5.JPG" style="max-width: 42px;
+    height: 42px;">
+											<div class="mui-media-body">
+												CBD
+												<p class='mui-ellipsis'>烤炉模式的城，到黄昏，如同打翻的调色盘一般.</p>
+											</div>
+										</a>
+									</li>
+									<li class="coupon-ul-li">
+										<a href="javascript:;">
+											<img class="mui-media-object mui-pull-left" src="img/ls5.JPG" style="max-width: 42px;
+    height: 42px;">
+											<div class="mui-media-body">
+												CBD
+												<p class='mui-ellipsis'>烤炉模式的城，到黄昏，如同打翻的调色盘一般.</p>
+											</div>
+										</a>
+									</li>
+									<li class="coupon-ul-li">
+										<a href="javascript:;">
+											<img class="mui-media-object mui-pull-left" src="img/ls10.JPG" style="max-width: 42px;
+    height: 42px;">
+											<div class="mui-media-body">
+												幸福
+												<p class='mui-ellipsis'>能和心爱的人一起睡觉，是件幸福的事情；可是，打呼噜怎么办？</p>
+											</div>
+										</a>
+									</li>
+									<li class="coupon-ul-li">
+										<a href="javascript:;">
+											<img class="mui-media-object mui-pull-left" src="img/ls10.JPG" style="max-width: 42px;
+    height: 42px;">
+											<div class="mui-media-body">
+												幸福
+												<p class='mui-ellipsis'>能和心爱的人一起睡觉，是件幸福的事情；可是，打呼噜怎么办？</p>
+											</div>
+										</a>
+									</li>
+									<li class="coupon-ul-li">
+										<a href="javascript:;">
+											<img class="mui-media-object mui-pull-left" src="img/ls10.JPG" style="max-width: 42px;
+    height: 42px;">
+											<div class="mui-media-body">
+												幸福
+												<p class='mui-ellipsis'>能和心爱的人一起睡觉，是件幸福的事情；可是，打呼噜怎么办？</p>
+											</div>
+										</a>
+									</li>
+									<li class="coupon-ul-li">
+										<a href="javascript:;">
+											<img class="mui-media-object mui-pull-left" src="img/ls10.JPG" style="max-width: 42px;
+    height: 42px;">
+											<div class="mui-media-body">
+												幸福
+												<p class='mui-ellipsis'>能和心爱的人一起睡觉，是件幸福的事情；可是，打呼噜怎么办？</p>
+											</div>
+										</a>
+									</li>
+
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div id="item2mobile" class="mui-slider-item mui-control-content">
+						<div id="scroll2" class="mui-scroll-wrapper">
+							<div class="mui-scroll">
+								<div class="mui-loading">
+									<div class="mui-spinner">
+									</div>
+								</div>
+							</div>
+						</div>
+
+					</div>
+					<div id="item3mobile" class="mui-slider-item mui-control-content">
+						<div id="scroll3" class="mui-scroll-wrapper">
+							<div class="mui-scroll">
+								<div class="mui-loading">
+									<div class="mui-spinner">
+									</div>
+								</div>
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+
+		</div>
+		<script src="../common/js/mui.min.js"></script>
+		<script>
+			mui.init({
+				swipeBack: false
+			});
+			(function($) {
+				$('.mui-scroll-wrapper').scroll({
+					indicators: true //是否显示滚动条
+				});
+				var html2 = '<ul class="coupon-ul"> <li class="coupon-ul-li"><a href="javascript:;"><img class="mui-media-object mui-pull-left" src="img/ls5.JPG" style="max-width: 42px;height: 42px;"><div class="mui-media-body">CBD<p class="mui-ellipsis">烤炉模式的城，到黄昏，如同打翻的调色盘一般.</p></div></a></li><li class = "coupon-ul-li" ><a href = "javascript:;" ><img class = "mui-media-object mui-pull-left" src = "img/ls10.JPG" style = "max-width: 42px; height: 42 px;"> <div class = "mui-media-body" >幸福 <p class = "mui-ellipsis">能和心爱的人一起睡觉， 是件幸福的事情； 可是， 打呼噜怎么办？ </p> </div> </a> </li> </ul> ';
+				var html3 = '<ul class="coupon-ul"><li class="coupon-ul-li"><a href="javascript:;"><img class="mui-media-object mui-pull-left" src="img/ls5.JPG" style="max-width: 42px;height: 42px;"><div class="mui-media-body">CBD<p class="mui-ellipsis">烤炉模式的城，到黄昏，如同打翻的调色盘一般.</p></div></a></li><li class="coupon-ul-cell">第三个选项卡子项-2</li></ul>';
+
+				var item2 = document.getElementById('item2mobile');
+				var item3 = document.getElementById('item3mobile');
+				document.getElementById('slider').addEventListener('slide', function(e) {
+					if(e.detail.slideNumber === 1) {
+						if(item2.querySelector('.mui-loading')) {
+							setTimeout(function() {
+								item2.querySelector('.mui-scroll').innerHTML = html2;
+							}, 500);
+						}
+					}
+					if(e.detail.slideNumber === 2) {
+						if(item3.querySelector('.mui-loading')) {
+							setTimeout(function() {
+								item3.querySelector('.mui-scroll').innerHTML = html3;
+							}, 500);
+						}
+					}
+				});
+			})(mui);
+		</script>
+
+	</body>
+
+</html>

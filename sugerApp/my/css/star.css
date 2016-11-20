@@ -1,0 +1,29 @@
+.feedback body {
+	background-color: #EFEFF4;
+}
+.feedback .row {
+	width: 100%;
+	background-color: #fff;
+}
+.feedback p {
+	padding: 10px 15px 0;
+}
+.feedback .mui-inline{
+	vertical-align: bottom;
+	font-size: 14px;
+	color: #8f8f94;
+}
+.mui-icon-star{
+	color: #B5B5B5;
+	font-size: 22px;
+}
+.mui-icon-star-filled{
+	color: #FFB400;
+	font-size: 22px;
+} 
+.stream{
+	display: none;
+}
+.mui-plus-stream .stream{
+	display: block;
+}

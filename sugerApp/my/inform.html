@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>编辑资料</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<!--标准mui.css-->
+		<link rel="stylesheet" href="../common/css/mui.min.css">
+		<!--App自定义的css-->
+		<link rel="stylesheet" type="text/css" href="css/inform.css" />
+		<link rel="stylesheet" type="text/css" href="../common/css/global.css" />
+		<link href="css/mui.picker.css" rel="stylesheet" />
+		<link href="css/mui.poppicker.css" rel="stylesheet" />
+		<script src="../common/js/mui.min.js"></script>
+		<script src="../common/js/jquery-2.1.0.js"></script>
+
+	</head>
+
+	<body>
+		<header id="header" class="mui-bar mui-bar-nav">
+			<h1 class="mui-title">编辑资料</h1>
+			<a class="mui-icon mui-action-back mui-icon-back mui-pull-left"></a>
+		</header>
+		<div class="mui-content">
+			<div id="top" class="top">
+				<img id="img1" src="img/yuantiao.jpg" />
+				<img id="photo" src="img/bg.JPG" />
+				<div id="button">
+					<a href="#picture-bg" class="mui-btn mui-btn-primary mui-btn-block mui-btn-outlined">修改封面</a>
+					<a href="#picture-ph" class="mui-btn mui-btn-primary mui-btn-block mui-btn-outlined">修改头像</a>
+				</div>
+			</div>
+			<form class="mui-input-group">
+					<div class="mui-input-row">
+						<label>昵称</label>
+						<input type="text" placeholder="起个好听的名字吧">
+					</div>
+					<div class="mui-input-row">
+						<label>简介</label>
+						<input type="text" placeholder="说点什么介绍一下自己">
+					</div>
+					<div class="mui-input-row" id='showUserPicker'>
+						<label>性别</label>
+						<input type="" placeholder="" id='userResult' class="ui-alert">>
+					</div>
+					<div class="mui-input-row" id='showCityPicker'>
+						<label>地区</label>
+						<input type="text" placeholder="" id='cityResult' class="ui-alert">
+					</div>
+					<div class="mui-input-row" id='pickDateBtn' >
+						<label>生日</label>
+						<input type="text" placeholder="填写你的破壳日吧！" id="dateResult" >
+					</div>
+			</form>
+		</div>
+		
+		<!--<div id="picture-bg" class="mui-popover mui-popover-action mui-popover-bottom">
+			<ul class="mui-table-view">
+				<li class="mui-table-view-cell">
+					<p>修改背景</p>
+				</li>
+				<li class="mui-table-view-cell">
+					<a href="#">拍照</a>
+				</li>
+				<li class="mui-table-view-cell">
+					<a href="#">从相册上传</a>
+				</li>
+			</ul>
+			<ul class="mui-table-view">
+				<li class="mui-table-view-cell">
+					<a href="#picture-bg"><b>取消</b></a>
+				</li>
+			</ul>
+		</div>
+		<div id="picture-ph" class="mui-popover mui-popover-action mui-popover-bottom">
+			<ul class="mui-table-view">
+				<li class="mui-table-view-cell">
+					<p>修改头像</p>
+				</li>
+				<li class="mui-table-view-cell">
+					<a href="#">拍照</a>
+				</li>
+				<li class="mui-table-view-cell">
+					<a href="#">从相册上传</a>
+				</li>
+			</ul>
+			<ul class="mui-table-view">
+				<li class="mui-table-view-cell">
+					<a href="#picture-ph"><b>取消</b></a>
+				</li>
+			</ul>
+		</div>-->
+		<script>
+			mui.init({
+				swipeBack: true //启用右滑关闭功能
+			});
+		</script>
+		<script src="js/mui.picker.js"></script>df`
+		<script src="js/mui.poppicker.js"></script>
+		<script src="js/city.data.js" type="text/javascript" charset="utf-8"></script>
+		<script>
+			(function($, doc) {
+				$.init();
+				$.ready(function() {
+					//普通示例
+					var userPicker = new $.PopPicker();
+					userPicker.setData([{
+						value: 'nan',
+						text: '男'
+					}, {
+						value: 'nv',
+						text: '女'
+					},{
+						value: 'mimi',
+						text: '保密'
+					}]);
+					var showUserPickerButton = doc.getElementById('showUserPicker');
+					var userResult = doc.getElementById('userResult');
+					showUserPickerButton.addEventListener('tap', function(event) {
+						userPicker.show(function(items) {
+							userResult.value = items[0].text;
+							//返回 false 可以阻止选择框的关闭
+							//return false;
+						});
+					}, false);
+					//-----------------------------------------
+					//级联示例
+					var cityPicker = new $.PopPicker({
+						layer: 2
+					});
+					cityPicker.setData(cityData);
+					var showCityPickerButton = doc.getElementById('showCityPicker');
+					var cityResult = doc.getElementById('cityResult');
+					showCityPickerButton.addEventListener('tap', function(event) {
+						cityPicker.show(function(items) {
+							cityResult.value = items[0].text + " " + items[1].text;
+							//返回 false 可以阻止选择框的关闭
+							//return false;
+						});
+					}, false);
+				});
+			})(mui, document);
+		</script>
+		<script>
+			var dateResult = document.getElementById("dateResult");
+			document.getElementById("pickDateBtn").addEventListener('tap', function() {
+				var dDate = new Date();
+				dDate.setFullYear(2014, 7, 16);
+				var minDate = new Date();
+				minDate.setFullYear(2010, 0, 1);
+				var maxDate = new Date();
+				maxDate.setFullYear(2016, 11, 31);
+				plus.nativeUI.pickDate(function(e) {
+					var d = e.date;
+					dateResult.value = d.getFullYear() + "-" + (d.getMonth() + 1) + "-" + d.getDate();
+				}, function(e) {
+					dateResult.value = "填写你的破壳日吧！";
+				}, {
+					title: "请选择日期",
+					date: dDate,
+					minDate: minDate,
+					maxDate: maxDate
+				});
+			});
+		</script>
+	</body>
+
+</html>

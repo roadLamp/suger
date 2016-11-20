@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>个人中心</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+		<!--标准mui.css-->
+		<link rel="stylesheet" href="../common/css/mui.min.css">
+		<!--App自定义的css-->
+		<link rel="stylesheet" type="text/css" href="" />
+		<link rel="stylesheet" type="text/css" href="css/myPage.css" />
+		<script src="../common/js/jquery-2.1.0.js"></script>
+
+	</head>
+
+	<body>
+		<header id="header" class="mui-bar mui-bar-transparent">
+			<a class="mui-icon mui-action-back mui-icon-back mui-pull-left"></a>
+			<a class="mui-icon mui-icon-more-filled mui-pull-right" href="inform.html"></a>
+			<h1 class="mui-title">Name</h1>
+		</header>
+
+		<div class="mui-content">
+			<div id="top" class="top">
+				<a onclick="actionSheet()">
+					<img id="img1" src="img/yuantiao.jpg" />
+				</a>
+				<a onclick="actionSheet()">
+					<img id="photo" src="img/bg.JPG" />
+				</a>
+				<div id="name">
+					<p style="font-size: 20px;">littlebread</p>
+					<p style="font-size:12px ;">
+						<a href="#">0 关注</a>
+						<a>|</a>
+						<a href="#">100 粉丝</a>
+					</p>
+					<p style="font-size:10px;">啦啦啦lalalalalalalalalalalalallalalalalalal</p>
+				</div>
+			</div>
+
+			<div class="mui-card">
+				<div class="mui-card-header mui-card-media">
+					<img src="img/bg.JPG" />
+					<div class="mui-media-body">
+						littlebread
+						<p>2016-06-30 15:30</p>
+						<a href="">更新了专辑</a>
+					</div>
+
+				</div>
+				<div class="mui-card-content">
+					<img src="img/ls1.JPG" />
+					<img src="img/ls2.JPG" />
+				</div>
+				<div class="mui-card-header mui-card-media">
+					<img src="img/bg.JPG" />
+					<div class="mui-media-body">
+						littlebread
+						<p>2016-09-30 12:00</p>
+						<a href="#">更新了专辑</a>
+					</div>
+
+				</div>
+				<div class="mui-card-content">
+					<img src="img/ls10.JPG" />
+					<img src="img/ls9.JPG" />
+				</div>
+			</div>
+		</div>
+
+		<script type="text/javascript">
+			//背景图片
+			function actionSheet() {
+				plus.nativeUI.actionSheet({
+						title: "更换背景图片",
+						cancel: "取消",
+						buttons: [{
+							title: "拍照"
+						}, {
+							title: "从相册选取"
+						}]
+					},
+					function(e) {
+						switch(e.index) {
+							case 0:
+								break;
+							case 1:
+								getImage();
+								break;
+							case 2:
+								galleryImg();
+								break;
+							default:
+								break
+						}
+
+					});
+
+			}
+
+			//拍照	
+			function getImage() {
+				var c = plus.camera.getCamera();
+				c.captureImage(function(e) {
+					plus.io.resolveLocalFileSystemURL(e, function(entry) {
+						var s = entry.toLocalURL() + "?version=" + new Date().getTime();
+						console.log(s);
+						document.getElementById("img1").src = s;
+						document.getElementById("img11").src = s;
+						//变更大图预览的src
+						//目前仅有一张图片，暂时如此处理，后续需要通过标准组件实现
+						document.querySelector("#__mui-imageview__group .mui-slider-item img").src = s + "?version=" + new Date().getTime();;;
+					}, function(e) {
+						console.log("读取拍照文件错误：" + e.message);
+					});
+				}, function(s) {
+					console.log("error" + s);
+				}, {
+					filename: "_doc/head.jpg"
+				})
+			}
+
+			//相册
+			function galleryImg() {
+				plus.gallery.pick(function(a) {
+					plus.io.resolveLocalFileSystemURL(a, function(entry) {
+						plus.io.resolveLocalFileSystemURL("_doc/", function(root) {
+							root.getFile("head.jpg", {}, function(file) {
+								//文件已存在
+								file.remove(function() {
+									console.log("file remove success");
+									entry.copyTo(root, 'head.jpg', function(e) {
+											var e = e.fullPath + "?version=" + new Date().getTime();
+											document.getElementById("img1").src = e;
+											document.getElementById("img11").src = e;
+											//变更大图预览的src
+											//目前仅有一张图片，暂时如此处理，后续需要通过标准组件实现
+											document.querySelector("#__mui-imageview__group .mui-slider-item img").src = e + "?version=" + new Date().getTime();;
+										},
+										function(e) {
+											console.log('copy image fail:' + e.message);
+										});
+								}, function() {
+									console.log("delete image fail:" + e.message);
+								});
+							}, function() {
+								//文件不存在
+								entry.copyTo(root, 'head.jpg', function(e) {
+										var path = e.fullPath + "?version=" + new Date().getTime();
+										document.getElementById("img1").src = path;
+										document.getElementById("img11").src = path;
+										//变更大图预览的src
+										//目前仅有一张图片，暂时如此处理，后续需要通过标准组件实现
+										document.querySelector("#__mui-imageview__group .mui-slider-item img").src = path;
+									},
+									function(e) {
+										console.log('copy image fail:' + e.message);
+									});
+							});
+						}, function(e) {
+							console.log("get _www folder fail");
+						})
+					}, function(e) {
+						console.log("读取拍照文件错误：" + e.message);
+					});
+				}, function(a) {}, {
+					filter: "image"
+				})
+			};
+		</script>
+
+	</body>
+
+	<script src="../common/js/mui.js"></script>
+	<script type="text/javascript">
+		mui.init({
+			swipeBack: true //启用右滑关闭功能
+		});
+		var header = document.getElementById("header");
+		//左侧icon
+		var lefticon = document.createElement('a');
+		lefticon.className = 'mui-action-back mui-icon mui-icon-left-nav mui-pull-left';
+		//			//左侧图标+文字按钮
+		//			var leftbtn = document.createElement('button');
+		//			leftbtn.className = 'mui-action-back mui-btn mui-btn-blue mui-btn-link mui-btn-nav mui-pull-left';
+		//			var span = document.createElement('span');
+		//			span.className = 'mui-icon mui-icon-left-nav';
+		//			leftbtn.appendChild(span);
+		//			var text = document.createTextNode('首页');
+		//			leftbtn.appendChild(text);
+		//右侧icon
+		var righticon = document.createElement('a');
+		righticon.className = 'mui-icon mui-icon-more-filled mui-pull-right';
+		//			//右侧文字按钮
+		//			var rightbtn = document.createElement('button');
+		//			rightbtn.className = 'mui-btn mui-btn-blue mui-btn-link mui-pull-right';
+		//			rightbtn.innerText = '编辑';
+		//			//删除原先存在的节点
+		//			function remove(selector) {
+		//				var elem = header.querySelector(selector);
+		//				if (elem) {
+		//					header.removeChild(elem);
+		//				}
+		//			};
+		var transparentApi;
+		var slider = document.getElementById("slider");
+		mui('.mui-input-group').on('change', 'input', function() {
+			if(this.checked) {
+				switch(this.value) {
+					case 'left-none':
+						remove('.mui-pull-left');
+						document.getElementById("img1").className = "";
+						document.getElementById("slider").classList.add("mui-hidden");
+						break;
+					case 'left-icon':
+						document.getElementById("img1").className = "mui-hidden";
+						if(slider.classList.contains("mui-hidden")) {
+							document.getElementById("slider").classList.remove("mui-hidden");
+						}
+						break;
+						//						case 'left-btn':
+						//							remove('.mui-pull-left');
+						//							header.appendChild(leftbtn);
+						//							break;
+					case 'right-none':
+						remove('.mui-pull-right');
+						break;
+					case 'right-icon':
+						remove('.mui-pull-right')
+						header.appendChild(righticon);
+						break;
+						//						case 'right-btn':
+						//							remove('.mui-pull-right');
+						//							header.appendChild(rightbtn);
+						//							break;
+						//						case 'transparent':
+						//							header.className = 'mui-bar mui-bar-transparent';
+						//							transparentApi = mui('.mui-bar-transparent').transparent();
+						//							break;
+						//						case 'nav':
+						//							header.className = 'mui-bar mui-bar-nav';
+						//							transparentApi && transparentApi.destory();
+						//							break;
+				}
+			}
+		});
+	</script>
+
+</html>
